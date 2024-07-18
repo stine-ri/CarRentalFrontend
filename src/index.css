@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles for the body */
+body {
+  height: 100vh; /* Sets the height of the body to 100% of the viewport height */
+  margin: 0; /* Remove default margin */
+  overflow: hidden; /* Hide overflow to prevent scrolling */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}

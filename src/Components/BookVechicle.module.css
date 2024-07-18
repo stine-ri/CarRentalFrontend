@@ -1,0 +1,38 @@
+.book-vehicle {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.book-vehicle h2 {
+  text-align: center;
+}
+
+.book-vehicle form {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-vehicle label {
+  margin-top: 10px;
+}
+
+.book-vehicle input,
+.book-vehicle select {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.book-vehicle button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.book-vehicle button:hover {
+  background-color: #0056b3;
+}

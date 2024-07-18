@@ -1,0 +1,37 @@
+.admin-dashboard {
+  padding: 20px;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left corner */
+}
+
+.admin-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-nav li {
+  margin-bottom: 10px; /* Adjust margin bottom for spacing between items */
+}
+
+.admin-nav a {
+  display: block; /* Make anchor tags block level for full-width effect */
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  width: 200px; /* Adjust width as needed */
+  text-align: center; /* Center text horizontally */
+}
+
+.admin-nav a:hover {
+  background-color: #0056b3;
+}

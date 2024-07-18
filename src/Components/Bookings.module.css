@@ -1,0 +1,59 @@
+.bookings {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.bookings h2 {
+  text-align: center;
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+.vehicle-list {
+  display: flex;
+  flex-direction: row; /* Ensure items are laid out horizontally */
+  flex-wrap: nowrap; /* Prevent items from wrapping */
+  overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+.vehicle-item {
+  min-width: 200px; /* Minimum width for each vehicle item */
+  max-width: 300px; /* Maximum width for each vehicle item */
+  flex: 0 0 auto; /* Ensure items do not grow or shrink */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 20px; /* Add space between items */
+  text-align: center;
+  background-color: #fff; /* Add background color to each vehicle item */
+  border-radius: 8px; /* Rounded corners for better aesthetics */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+.vehicle-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners for images */
+}
+
+.vehicle-details {
+  margin-top: 10px;
+}
+
+.vehicle-details p {
+  margin: 5px 0;
+}
+
+.vehicle-details button {
+  display: block; /* Ensure button is full-width */
+  width: 100%; /* Full-width button */
+  padding: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.vehicle-details button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

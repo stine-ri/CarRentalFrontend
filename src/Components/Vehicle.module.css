@@ -1,0 +1,33 @@
+.vehicleTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .vehicleTable th, .vehicleTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .vehicleTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+    color: black;
+  }
+  
+  .actionButton {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .actionButton:hover {
+    background-color: #45a049;
+  }
+  
