@@ -38,7 +38,7 @@ const PaymentForm: React.FC = () => {
         setIsLoading(false);
       } else if (paymentMethod) {
         const paymentData = {
-          booking_id: 32, // Updated booking_id
+          booking_id: 4, // Updated booking_id
           amount: parseFloat(amount),
           payment_status: 'Payment', // Updated payment status
           payment_date: '2024-06-01', // Updated payment date
