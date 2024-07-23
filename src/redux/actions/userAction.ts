@@ -13,7 +13,7 @@ interface UserData {
 
 // Fetch Users
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-  const response = await fetch('http://localhost:3000/api/users');
+  const response = await fetch('https://api-vehiclebackend.onrender.com/api/users');
   if (!response.ok) {
     const jsonResponse = await response.json();
     throw new Error(jsonResponse.message || 'Network response was not ok');
@@ -26,7 +26,7 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 export const updateUser = createAsyncThunk(
   'users/updateUser',
   async ({ userId, userData }: { userId: number; userData: Partial<UserData> }) => {
-    const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+    const response = await fetch(`https://api-vehiclebackend.onrender.com/api/users/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const updateUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   'users/deleteUser',
   async (userId: number) => {
-    const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+    const response = await fetch(`https://api-vehiclebackend.onrender.com/api/users/${userId}`, {
       method: 'DELETE',
     });
 

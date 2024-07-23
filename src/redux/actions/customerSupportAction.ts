@@ -35,7 +35,7 @@ export const updateSupportRequest = createAsyncThunk(
   'support/updateSupportRequest',
   async ({ requestId, supportData }: { requestId: number; supportData: any }) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/CustomerSupportTickets/${requestId}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/CustomerSupportTickets/${requestId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export const deleteSupportRequest = createAsyncThunk(
   'support/deleteSupportRequest',
   async (requestId: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/CustomerSupportTickets/${requestId}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/CustomerSupportTickets/${requestId}`, {
         method: 'DELETE',
       });
 

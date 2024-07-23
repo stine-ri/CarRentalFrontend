@@ -21,7 +21,7 @@ export const fetchFleetData = createAsyncThunk('fleet/fetchFleetData', async () 
       throw new Error('Token not found');
     }
 
-    const response = await fetch('http://localhost:3000/api/FleetManagement', {
+    const response = await fetch('https://api-vehiclebackend.onrender.com/api/FleetManagement', {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const updateFleetData = createAsyncThunk(
   'fleet/updateFleetData',
   async (updatedFleetData: FleetData) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/FleetManagement/${updatedFleetData.fleet_id}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/FleetManagement/${updatedFleetData.fleet_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const deleteFleetData = createAsyncThunk(
   'fleet/deleteFleetData',
   async (fleet_id: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/FleetManagement/${fleet_id}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/FleetManagement/${fleet_id}`, {
         method: 'DELETE',
       });
 

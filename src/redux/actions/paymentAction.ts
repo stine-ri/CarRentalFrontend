@@ -10,7 +10,7 @@ export const createPaymentIntent = createAsyncThunk(
     returnUrl: string;
   }) => {
     try {
-      const response = await fetch('http://localhost:3000/api/create-payment-intent', {
+      const response = await fetch('https://api-vehiclebackend.onrender.com/api/create-payment-intent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

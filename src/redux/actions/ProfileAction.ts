@@ -4,7 +4,7 @@ export const updateUserDetails = createAsyncThunk(
   'user/updateUserDetails',
   async ({ userId, userData }: { userId: number; userData: any }, thunkAPI) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

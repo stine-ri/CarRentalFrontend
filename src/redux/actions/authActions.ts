@@ -4,7 +4,7 @@ export const registerUser = createAsyncThunk(
   'auth/registerUser',
   async (userData: any, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:3000/api/register', {
+      const response = await fetch('https://api-vehiclebackend.onrender.com/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: any, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch('https://api-vehiclebackend.onrender.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

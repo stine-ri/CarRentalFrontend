@@ -7,7 +7,7 @@ export const fetchVehicles = createAsyncThunk('vehicles/fetchVehicle', async (_,
       throw new Error('Token not found');
     }
 
-    const response = await fetch(`http://localhost:3000/api/vehicleSpecifications`, {
+    const response = await fetch(`https://api-vehiclebackend.onrender.com/api/vehicleSpecifications`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const fetchVehicles = createAsyncThunk('vehicles/fetchVehicle', async (_,
 
 
 export const bookVehicle = createAsyncThunk('vehicles/bookVehicle', async (bookingData: any) => {
-  const response = await fetch('http://localhost:3000/api/book', {
+  const response = await fetch('https://api-vehiclebackend.onrender.com/api/book', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const updateVehicle = createAsyncThunk(
   'vehicles/updateVehicle',
   async ({ vehicleId, vehicleData }: { vehicleId: number; vehicleData: any }) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/vehicles/${vehicleId}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/vehicles/${vehicleId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export const deleteVehicle = createAsyncThunk(
   'vehicles/deleteVehicle',
   async (vehicleId: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/vehicles/${vehicleId}`, {
+      const response = await fetch(`https://api-vehiclebackend.onrender.com/api/vehicles/${vehicleId}`, {
         method: 'DELETE',
       });
 

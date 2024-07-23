@@ -2,7 +2,7 @@ export const bookVehicle = (bookingData: any) => async (dispatch: any) => {
     dispatch({ type: 'BOOK_VEHICLE_REQUEST' });
   
     try {
-      const response = await fetch('http://localhost:3000/api/Bookings', {
+      const response = await fetch('https://api-vehiclebackend.onrender.com/api/Bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
