@@ -15,7 +15,7 @@ interface Book {
 
 // Fetch Books
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  const response = await fetch('http://localhost:3000/api/books');
+  const response = await fetch('http://localhost:3000/api/Bookings');
   if (!response.ok) {
     const jsonResponse = await response.json();
     throw new Error(jsonResponse.message || 'Network response was not ok');
@@ -28,7 +28,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 export const createBook = createAsyncThunk(
   'books/createBook',
   async (book: Book) => {
-    const response = await fetch('http://localhost:3000/api/books', {
+    const response = await fetch('http://localhost:3000/api/Bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export const createBook = createAsyncThunk(
 export const updateBook = createAsyncThunk(
   'books/updateBook',
   async ({ bookId, bookData }: { bookId: number; bookData: Partial<Book> }) => {
-    const response = await fetch(`http://localhost:3000/api/books/${bookId}`, {
+    const response = await fetch(`http://localhost:3000/api/Bookings/${bookId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const updateBook = createAsyncThunk(
 export const deleteBook = createAsyncThunk(
   'books/deleteBook',
   async (bookId: number) => {
-    const response = await fetch(`http://localhost:3000/api/books/${bookId}`, {
+    const response = await fetch(`http://localhost:3000/api/Bookings/${bookId}`, {
       method: 'DELETE',
     });
 
