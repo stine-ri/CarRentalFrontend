@@ -47,7 +47,7 @@ const PaymentForm: React.FC = () => {
         };
 
         try {
-          const response = await fetch('http://localhost:3000/api/Payments', { // Updated endpoint
+          const response = await fetch('https://api-vehiclebackend.onrender.com/api/Payments', { // Updated endpoint
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
