@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import styles from './PaymentForm.module.css'; 
 
 // Stripe public key
@@ -11,11 +11,11 @@ const stripePromise = loadStripe('pk_test_51PeKzACI9w20ysjOXZAl43sGJogF5ggj6bfio
 const PaymentForm: React.FC = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate(); // Initialize useNavigate
-  const [amount, setAmount] = useState('');
+  const navigate = useNavigate();
+  const [amount, setAmount] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -37,17 +37,28 @@ const PaymentForm: React.FC = () => {
         setErrorMessage(error.message || 'Failed to create payment method.');
         setIsLoading(false);
       } else if (paymentMethod) {
+        // Ensure amount is a valid number
+        const parsedAmount = parseFloat(amount);
+        if (isNaN(parsedAmount) || parsedAmount <= 0) {
+          setErrorMessage('Invalid amount.');
+          setIsLoading(false);
+          return;
+        }
+
+        // Use the current date as payment_date
+        const paymentDate = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+
         const paymentData = {
-          booking_id: 4, // Updated booking_id
-          amount: parseFloat(amount),
-          payment_status: 'Payment', // Updated payment status
-          payment_date: '2024-06-01', // Updated payment date
-          payment_method: 'M-pesa', // Updated payment method
-          transaction_id: '1' // Updated transaction ID
+          booking_id: 4,
+          amount: parsedAmount,
+          payment_status: 'Payment',
+          payment_date: paymentDate,
+          payment_method: 'M-pesa',
+          transaction_id: '1'
         };
 
         try {
-          const response = await fetch('https://api-vehiclebackend.onrender.com/api/Payments', { // Updated endpoint
+          const response = await fetch('https://api-vehiclebackend.onrender.com/api/Payments', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -58,17 +69,15 @@ const PaymentForm: React.FC = () => {
           if (response.ok) {
             setIsSuccess(true);
             setErrorMessage(null);
-            navigate('/user/payment-success'); // Use navigate for redirection
+            navigate('/user/payment-success');
           } else {
             const data = await response.json();
+            console.error('Response error:', data);
             setErrorMessage(data.message || 'Failed to process payment.');
           }
         } catch (err) {
-          if (err instanceof Error) {
-            setErrorMessage(err.message || 'Failed to process payment.');
-          } else {
-            setErrorMessage('Failed to process payment.');
-          }
+          console.error('Fetch error:', err);
+          setErrorMessage(err instanceof Error ? err.message : 'Failed to process payment.');
         } finally {
           setIsLoading(false);
         }
