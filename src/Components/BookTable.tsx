@@ -1,10 +1,9 @@
-// components/BookTable.tsx
 import React from 'react';
 import styles from './BookTable.module.css';
 
-// Define the Book interface
+// Define the Book interface directly in this file
 interface Book {
-  id?: number;
+  id?: number; // Make 'id' optional here if it can be undefined
   user_id: number;
   vehicle_id: number;
   location_id: number;
@@ -48,10 +47,18 @@ const BookTable: React.FC<BookTableProps> = ({ bookData, onUpdate, onDelete }) =
             <td>{book.total_amount}</td>
             <td>{book.booking_status}</td>
             <td>
-              <button className={styles.updateButton} onClick={() => onUpdate(book)}>
+              <button
+                className={styles.updateButton}
+                onClick={() => onUpdate(book)}
+                aria-label={`Update book ${book.id}`}
+              >
                 Update
               </button>
-              <button className={styles.deleteButton} onClick={() => onDelete(book.id!)}>
+              <button
+                className={styles.deleteButton}
+                onClick={() => onDelete(book.id!)}
+                aria-label={`Delete book ${book.id}`}
+              >
                 Delete
               </button>
             </td>

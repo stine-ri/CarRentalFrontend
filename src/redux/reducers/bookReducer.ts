@@ -1,6 +1,6 @@
 // reducers/bookReducer.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchBooks ,createBook,updateBook,deleteBook} from '../actions/bookAction';
+import { fetchBooks, createBook, updateBook, deleteBook } from '../actions/bookAction';
 
 // Define the Book interface
 interface Book {
@@ -44,7 +44,7 @@ const bookSlice = createSlice({
         state.error = action.error.message || 'Failed to fetch books';
       })
       .addCase(createBook.fulfilled, (state, action: PayloadAction<Book>) => {
-        state.books.push(action.payload);
+        state.books.push(action.payload); // The backend should return the book with an id
       })
       .addCase(updateBook.fulfilled, (state, action: PayloadAction<Book>) => {
         const index = state.books.findIndex(book => book.id === action.payload.id);

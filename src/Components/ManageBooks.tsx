@@ -49,7 +49,7 @@ const ManageBooks: React.FC = () => {
     e.preventDefault();
     if (editableBook) {
       try {
-        await dispatch(updateBook({ bookId: bookData.id!, bookData: bookData }));
+        await dispatch(updateBook({ bookId: editableBook.id!, bookData: bookData }));
         alert('Book updated successfully!');
         setEditableBook(null);
       } catch (err) {
@@ -112,7 +112,7 @@ const ManageBooks: React.FC = () => {
             </form>
           )}
           <form className={styles.bookForm} onSubmit={handleCreateBook}>
-            <h2>Create Book</h2>
+            <h2>Create New Book</h2>
             <input type="number" name="user_id" value={bookData.user_id} onChange={handleBookChange} />
             <input type="number" name="vehicle_id" value={bookData.vehicle_id} onChange={handleBookChange} />
             <input type="number" name="location_id" value={bookData.location_id} onChange={handleBookChange} />

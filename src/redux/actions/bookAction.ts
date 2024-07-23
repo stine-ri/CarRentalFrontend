@@ -27,7 +27,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 // Create Book
 export const createBook = createAsyncThunk(
   'books/createBook',
-  async (book: Book) => {
+  async (book: Omit<Book, 'id'>) => { // Remove id from the book object
     const response = await fetch('https://api-vehiclebackend.onrender.com/api/Bookings', {
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ export const createBook = createAsyncThunk(
       throw new Error(data.message || 'Failed to create book');
     }
 
-    return await response.json();
+    return await response.json(); // Expect the response to include the id
   }
 );
 

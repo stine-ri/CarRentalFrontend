@@ -23,6 +23,7 @@ const AdminDashboard: React.FC = () => {
             <li><Link to="/admin/fleet-management" className={styles['admin-nav-link']}>Fleet Management</Link></li>
             <li><Link to="/admin/settings" className={styles['admin-nav-link']}>Settings</Link></li>
             <li><Link to="/admin/manage-books" className={styles['admin-nav-link']}>Bookings</Link></li>
+            <li><Link to="/admin/manage-locations" className={styles['admin-nav-link']}>Manage Books</Link></li>
             <li><button onClick={handleLogout} className={styles['logout-button']}>Logout</button></li>
           </ul>
         </nav>
@@ -59,6 +60,11 @@ const AdminDashboard: React.FC = () => {
             <h3> Bookings </h3>
             <p>Manage and oversee the Bookings.</p>
             <Link to="/admin/manage-books" className={styles['button-link']}>Go to Bookings</Link>
+          </div>
+          <div className={styles['overview-item']}>
+            <h3> Locations </h3>
+            <p>Manage and oversee the Locations.</p>
+            <Link to="/admin/manage-locations" className={styles['button-link']}>Go to Locations</Link>
           </div>
           <div className={styles['overview-item']}>
             <h3>Settings</h3>

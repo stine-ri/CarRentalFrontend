@@ -1,0 +1,32 @@
+/* components/LocationTable.module.css */
+.locationTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .locationTable th,
+  .locationTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .locationTable th {
+    background-color: #f4f4f4;
+  }
+  
+  .updateButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

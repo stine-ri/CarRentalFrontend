@@ -1,0 +1,23 @@
+/* components/ManageLocations.module.css */
+.manageLocationsContainer {
+    padding: 20px;
+  }
+  
+  .locationForm {
+    margin-top: 20px;
+  }
+  
+  .locationForm input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+  }
+  
+  .locationForm button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  

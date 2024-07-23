@@ -23,6 +23,7 @@ import PaymentSuccess from './Components/PaymentSuccess';
 import DashboardOverview from './Components/DashboardOverview';
 import ContactUs from './Components/ContactUs';
 import ManageBooks from './Components/ManageBooks';
+import ManageLocations from 'Components/ManageLocations';
 const App: React.FC = () => {
   
   return (
@@ -54,6 +55,8 @@ const App: React.FC = () => {
         <Route path="/user-dashboard-overview" element={<DashboardOverview />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/admin/manage-books" element={<ManageBooks />} />
+        <Route path="/admin/manage-locations" element={<ManageLocations />} />
+
       </Routes>
       <Footer />
     </div>

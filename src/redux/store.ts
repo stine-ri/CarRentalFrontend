@@ -8,6 +8,7 @@ import fleetManagementReducer from './reducers/fleetManagementReducer';
 import profileReducer from './reducers/profileReducer';
 import paymentReducer from './reducers/paymentReducer';
 import bookReducer from './reducers/bookReducer';
+import locationReducer from './reducers/locationReducer';
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -18,7 +19,8 @@ const store = configureStore({
     fleetManagement: fleetManagementReducer, 
     user: profileReducer,
     payment: paymentReducer, 
-    books :bookReducer
+    books :bookReducer,
+    locations: locationReducer,  
   },
 });
 
