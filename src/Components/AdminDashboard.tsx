@@ -22,6 +22,7 @@ const AdminDashboard: React.FC = () => {
             <li><Link to="/admin/customer-support" className={styles['admin-nav-link']}>Customer Support</Link></li>
             <li><Link to="/admin/fleet-management" className={styles['admin-nav-link']}>Fleet Management</Link></li>
             <li><Link to="/admin/settings" className={styles['admin-nav-link']}>Settings</Link></li>
+            <li><Link to="/admin/manage-books" className={styles['admin-nav-link']}>Bookings</Link></li>
             <li><button onClick={handleLogout} className={styles['logout-button']}>Logout</button></li>
           </ul>
         </nav>
