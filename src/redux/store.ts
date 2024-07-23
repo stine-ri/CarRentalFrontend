@@ -7,6 +7,7 @@ import customerSupportReducer from './reducers/customerSupportReducer';
 import fleetManagementReducer from './reducers/fleetManagementReducer';
 import profileReducer from './reducers/profileReducer';
 import paymentReducer from './reducers/paymentReducer';
+import bookReducer from './reducers/bookReducer';
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -16,7 +17,8 @@ const store = configureStore({
     customerSupport: customerSupportReducer,
     fleetManagement: fleetManagementReducer, 
     user: profileReducer,
-    payment: paymentReducer,  
+    payment: paymentReducer, 
+    books :bookReducer
   },
 });
 

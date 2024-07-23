@@ -22,6 +22,7 @@ import PaymentForm from './Components/PaymentForm';
 import PaymentSuccess from './Components/PaymentSuccess';
 import DashboardOverview from './Components/DashboardOverview';
 import ContactUs from './Components/ContactUs';
+import ManageBooks from './Components/ManageBooks';
 const App: React.FC = () => {
   
   return (
@@ -52,6 +53,7 @@ const App: React.FC = () => {
         <Route path="/user/payment-success" element={<PaymentSuccess />} />
         <Route path="/user-dashboard-overview" element={<DashboardOverview />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/admin/manage-books" element={<ManageBooks />} />
       </Routes>
       <Footer />
     </div>

@@ -55,6 +55,11 @@ const AdminDashboard: React.FC = () => {
             <Link to="/admin/fleet-management" className={styles['button-link']}>Go to Fleet Management</Link>
           </div>
           <div className={styles['overview-item']}>
+            <h3> Bookings </h3>
+            <p>Manage and oversee the Bookings.</p>
+            <Link to="/admin/manage-books" className={styles['button-link']}>Go to Bookings</Link>
+          </div>
+          <div className={styles['overview-item']}>
             <h3>Settings</h3>
             <p>Configure system settings and preferences.</p>
             <Link to="/admin/settings" className={styles['button-link']}>Go to Settings</Link>

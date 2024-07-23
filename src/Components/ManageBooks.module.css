@@ -1,0 +1,25 @@
+/* components/ManageBooks.module.css */
+.manageBooksContainer {
+    padding: 20px;
+  }
+  
+  .bookForm {
+    margin-top: 20px;
+  }
+  
+  .bookForm input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .bookForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

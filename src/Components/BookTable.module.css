@@ -1,0 +1,42 @@
+/* components/BookTable.module.css */
+.bookTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .bookTable th, .bookTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .bookTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .updateButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 1px;
+    cursor: pointer;
+  }
+  
+  .deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 1px;
+    cursor: pointer;
+  }
+  
