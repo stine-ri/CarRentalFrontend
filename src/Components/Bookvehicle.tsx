@@ -10,7 +10,7 @@ const BookVehicle: React.FC = () => {
   const [bookingData, setBookingData] = useState({
     name: '',
     email: '',
-    vehicle_id: 1,
+    vehicle_id: 2,
     user_id: 1,
     location_id:1,
     location: '',  
