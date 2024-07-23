@@ -1,9 +1,8 @@
-// actions/bookActions.ts
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// Define the Book interface
+// Define the Book interface with booking_id required
 interface Book {
-  id?: number;
+  booking_id: number; // booking_id is no longer optional
   user_id: number;
   vehicle_id: number;
   location_id: number;
@@ -27,7 +26,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 // Create Book
 export const createBook = createAsyncThunk(
   'books/createBook',
-  async (book: Omit<Book, 'id'>) => { // Remove id from the book object
+  async (book: Omit<Book, 'booking_id'>) => {
     const response = await fetch('https://api-vehiclebackend.onrender.com/api/Bookings', {
       method: 'POST',
       headers: {
@@ -41,14 +40,16 @@ export const createBook = createAsyncThunk(
       throw new Error(data.message || 'Failed to create book');
     }
 
-    return await response.json(); // Expect the response to include the id
+    // Expect the response to include the booking_id
+    const createdBook: Book = await response.json();
+    return createdBook; // Return the complete Book object, including booking_id
   }
 );
 
 // Update Book
 export const updateBook = createAsyncThunk(
   'books/updateBook',
-  async ({ bookId, bookData }: { bookId: number; bookData: Partial<Book> }) => {
+  async ({ bookId, bookData }: { bookId: number; bookData: Omit<Book, 'booking_id'> }) => {
     const response = await fetch(`https://api-vehiclebackend.onrender.com/api/Bookings/${bookId}`, {
       method: 'PUT',
       headers: {
@@ -62,7 +63,8 @@ export const updateBook = createAsyncThunk(
       throw new Error(data.message || 'Failed to update book');
     }
 
-    return await response.json();
+    const updatedBook: Book = await response.json();
+    return updatedBook; // Return the updated Book object
   }
 );
 
@@ -79,6 +81,6 @@ export const deleteBook = createAsyncThunk(
       throw new Error(data.message || 'Failed to delete book');
     }
 
-    return bookId;
+    return bookId; // Return the deleted bookId
   }
 );

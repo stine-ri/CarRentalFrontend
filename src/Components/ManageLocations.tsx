@@ -1,13 +1,12 @@
-// components/ManageLocations.tsx
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { fetchLocations, updateLocation, deleteLocation, createLocation } from '../redux/actions/locationAction';
 import LocationTable from './LocationTable';
 import styles from './ManageLocations.module.css';
 
-// Define the Location interface
+// Define the Location interface with location_id as required
 interface Location {
-  id?: number;
+  location_id: number; // Renamed and required
   name: string;
   address: string;
   contact_phone: string;
@@ -18,7 +17,7 @@ const ManageLocations: React.FC = () => {
   const { locations, loading, error } = useAppSelector((state) => state.locations);
 
   const [editableLocation, setEditableLocation] = useState<Location | null>(null);
-  const [locationData, setLocationData] = useState<Location>({
+  const [locationData, setLocationData] = useState<Omit<Location, 'location_id'>>({
     name: '',
     address: '',
     contact_phone: '',
@@ -30,7 +29,11 @@ const ManageLocations: React.FC = () => {
 
   const handleUpdateLocationClick = (location: Location) => {
     setEditableLocation(location);
-    setLocationData(location);
+    setLocationData({
+      name: location.name,
+      address: location.address,
+      contact_phone: location.contact_phone,
+    });
   };
 
   const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +44,7 @@ const ManageLocations: React.FC = () => {
     e.preventDefault();
     if (editableLocation) {
       try {
-        await dispatch(updateLocation({ locationId: locationData.id!, locationData: locationData }));
+        await dispatch(updateLocation({ locationId: editableLocation.location_id, locationData }));
         alert('Location updated successfully!');
         setEditableLocation(null);
       } catch (err) {
@@ -64,7 +67,7 @@ const ManageLocations: React.FC = () => {
   const handleCreateLocation = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await dispatch(createLocation(locationData));
+      await dispatch(createLocation({ ...locationData }));
       alert('Location created successfully!');
       setLocationData({
         name: '',

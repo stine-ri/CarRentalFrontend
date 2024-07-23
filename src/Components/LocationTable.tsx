@@ -1,10 +1,9 @@
-// components/LocationTable.tsx
 import React from 'react';
-import styles from './LocationTable.module.css';
+import styles from './Location.module.css';
 
-// Define the Location interface
+// Define the Location interface with location_id as required
 interface Location {
-  id?: number;
+  location_id: number; // Renamed and required
   name: string;
   address: string;
   contact_phone: string;
@@ -30,8 +29,8 @@ const LocationTable: React.FC<LocationTableProps> = ({ locationData, onUpdate, o
       </thead>
       <tbody>
         {locationData.map((location) => (
-          <tr key={location.id}>
-            <td>{location.id}</td>
+          <tr key={location.location_id}>
+            <td>{location.location_id}</td>
             <td>{location.name}</td>
             <td>{location.address}</td>
             <td>{location.contact_phone}</td>
@@ -39,7 +38,7 @@ const LocationTable: React.FC<LocationTableProps> = ({ locationData, onUpdate, o
               <button className={styles.updateButton} onClick={() => onUpdate(location)}>
                 Update
               </button>
-              <button className={styles.deleteButton} onClick={() => onDelete(location.id!)}>
+              <button className={styles.deleteButton} onClick={() => onDelete(location.location_id)}>
                 Delete
               </button>
             </td>

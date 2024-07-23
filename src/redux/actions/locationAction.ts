@@ -1,9 +1,8 @@
-// actions/locationActions.ts
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// Define the Location interface
+// Define the Location interface with location_id as required
 interface Location {
-  id?: number;
+  location_id: number; // Renamed and required
   name: string;
   address: string;
   contact_phone: string;
@@ -23,7 +22,7 @@ export const fetchLocations = createAsyncThunk('locations/fetchLocations', async
 // Create Location
 export const createLocation = createAsyncThunk(
   'locations/createLocation',
-  async (location: Location) => {
+  async (location: Omit<Location, 'location_id'>) => {
     const response = await fetch('https://api-vehiclebackend.onrender.com/api/Locations', {
       method: 'POST',
       headers: {
@@ -44,7 +43,7 @@ export const createLocation = createAsyncThunk(
 // Update Location
 export const updateLocation = createAsyncThunk(
   'locations/updateLocation',
-  async ({ locationId, locationData }: { locationId: number; locationData: Partial<Location> }) => {
+  async ({ locationId, locationData }: { locationId: number; locationData: Partial<Omit<Location, 'location_id'>> }) => {
     const response = await fetch(`https://api-vehiclebackend.onrender.com/api/Locations/${locationId}`, {
       method: 'PUT',
       headers: {

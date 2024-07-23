@@ -1,4 +1,3 @@
-// components/ManageBooks.tsx
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { fetchBooks, updateBook, deleteBook, createBook } from '../redux/actions/bookAction';
@@ -7,7 +6,7 @@ import styles from './ManageBooks.module.css';
 
 // Define the Book interface
 interface Book {
-  id?: number;
+  booking_id: number;
   user_id: number;
   vehicle_id: number;
   location_id: number;
@@ -23,6 +22,7 @@ const ManageBooks: React.FC = () => {
 
   const [editableBook, setEditableBook] = useState<Book | null>(null);
   const [bookData, setBookData] = useState<Book>({
+    booking_id: 0, // Add this field to handle the booking ID in the form
     user_id: 0,
     vehicle_id: 0,
     location_id: 0,
@@ -49,7 +49,7 @@ const ManageBooks: React.FC = () => {
     e.preventDefault();
     if (editableBook) {
       try {
-        await dispatch(updateBook({ bookId: editableBook.id!, bookData: bookData }));
+        await dispatch(updateBook({ bookId: editableBook.booking_id, bookData: bookData }));
         alert('Book updated successfully!');
         setEditableBook(null);
       } catch (err) {
@@ -75,6 +75,7 @@ const ManageBooks: React.FC = () => {
       await dispatch(createBook(bookData));
       alert('Book created successfully!');
       setBookData({
+        booking_id: 0,
         user_id: 0,
         vehicle_id: 0,
         location_id: 0,
@@ -101,6 +102,7 @@ const ManageBooks: React.FC = () => {
           {editableBook && (
             <form className={styles.bookForm} onSubmit={handleUpdateBookSubmit}>
               <h2>Update Book</h2>
+              <input type="number" name="booking_id" value={bookData.booking_id} disabled /> {/* Display booking ID */}
               <input type="number" name="user_id" value={bookData.user_id} onChange={handleBookChange} />
               <input type="number" name="vehicle_id" value={bookData.vehicle_id} onChange={handleBookChange} />
               <input type="number" name="location_id" value={bookData.location_id} onChange={handleBookChange} />

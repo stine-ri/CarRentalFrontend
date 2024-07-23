@@ -23,7 +23,7 @@ import PaymentSuccess from './Components/PaymentSuccess';
 import DashboardOverview from './Components/DashboardOverview';
 import ContactUs from './Components/ContactUs';
 import ManageBooks from './Components/ManageBooks';
-import ManageLocations from 'Components/ManageLocations';
+import ManageLocations from './Components/ManageLocations';
 const App: React.FC = () => {
   
   return (

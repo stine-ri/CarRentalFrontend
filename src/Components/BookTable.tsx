@@ -3,7 +3,7 @@ import styles from './BookTable.module.css';
 
 // Define the Book interface directly in this file
 interface Book {
-  id?: number; // Make 'id' optional here if it can be undefined
+  booking_id: number;
   user_id: number;
   vehicle_id: number;
   location_id: number;
@@ -24,7 +24,7 @@ const BookTable: React.FC<BookTableProps> = ({ bookData, onUpdate, onDelete }) =
     <table className={styles.bookTable}>
       <thead>
         <tr>
-          <th>Book ID</th>
+          <th>Booking ID</th>
           <th>User ID</th>
           <th>Vehicle ID</th>
           <th>Location ID</th>
@@ -37,8 +37,8 @@ const BookTable: React.FC<BookTableProps> = ({ bookData, onUpdate, onDelete }) =
       </thead>
       <tbody>
         {bookData.map((book) => (
-          <tr key={book.id}>
-            <td>{book.id}</td>
+          <tr key={book.booking_id}>
+            <td>{book.booking_id}</td>
             <td>{book.user_id}</td>
             <td>{book.vehicle_id}</td>
             <td>{book.location_id}</td>
@@ -50,14 +50,14 @@ const BookTable: React.FC<BookTableProps> = ({ bookData, onUpdate, onDelete }) =
               <button
                 className={styles.updateButton}
                 onClick={() => onUpdate(book)}
-                aria-label={`Update book ${book.id}`}
+                aria-label={`Update booking ${book.booking_id}`}
               >
                 Update
               </button>
               <button
                 className={styles.deleteButton}
-                onClick={() => onDelete(book.id!)}
-                aria-label={`Delete book ${book.id}`}
+                onClick={() => onDelete(book.booking_id)}
+                aria-label={`Delete booking ${book.booking_id}`}
               >
                 Delete
               </button>
