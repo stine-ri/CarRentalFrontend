@@ -8,7 +8,7 @@ export const fetchSupportRequests = createAsyncThunk('support/fetchSupportReques
       throw new Error('Token not found');
     }
 
-    const response = await fetch('http://localhost:3000/api/CustomerSupportTickets', {
+    const response = await fetch('https://api-vehiclebackend.onrender.com/api/CustomerSupportTickets', {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
