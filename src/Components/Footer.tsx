@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import facebookIcon from '../assets/images/instagram.webp';
-import instagramIcon from '../assets/images/x.webp';
-import twitterIcon from '../assets/images/fb.png';
+import facebookIcon from '../assets/images/fb.png';
+import instagramIcon from '../assets/images/gram.png';
+import twitterIcon from '../assets/images/twitt.png';
 
 const Footer: React.FC = () => {
   return (
@@ -24,6 +24,9 @@ const Footer: React.FC = () => {
         <a href="https://www.twitter.com">
           <img src={twitterIcon} alt="Twitter" />
         </a>
+      </div>
+      <div>
+        <p>&copy; 2024 Stine Rental Management System</p>
       </div>
     </footer>
   );
