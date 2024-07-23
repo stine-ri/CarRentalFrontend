@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Vehicle.module.css'; // Import the CSS module for styling
+import styles from './Vehicle.module.css';
 
 interface Vehicle {
   id: number;
@@ -16,7 +16,7 @@ interface Vehicle {
 
 interface VehicleTableProps {
   vehicles: Vehicle[];
-  onUpdate: (vehicleId: number, vehicleData: any) => void;
+  onUpdate: (vehicleId: number, vehicleData: Vehicle) => void;
   onDelete: (vehicleId: number) => void;
 }
 
@@ -54,11 +54,14 @@ const VehicleTable: React.FC<VehicleTableProps> = ({ vehicles, onUpdate, onDelet
             <td>
               <button
                 className={styles.actionButton}
-                onClick={() => onUpdate(vehicle.id, { manufacturer: 'New Manufacturer', model: 'New Model' })}
+                onClick={() => onUpdate(vehicle.id, vehicle)}
               >
                 Update
               </button>
-              <button className={styles.actionButton} onClick={() => onDelete(vehicle.id)}>
+              <button
+                className={styles.actionButton}
+                onClick={() => onDelete(vehicle.id)}
+              >
                 Delete
               </button>
             </td>
