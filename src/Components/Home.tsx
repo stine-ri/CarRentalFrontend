@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   }
   return (
     <div className={styles.home}>
-      {/* <img src={cadillac} alt="Vehicle"  height={100} width={150}/> */}
+      {/* { <img src={cadillac} alt="Vehicle"  height={100} width={150}/> } */}
       <h1>Welcome to Stine Rental Management System</h1>
       <p>Your one-stop solution for renting vehicles.</p>
       <button onClick={handleGetStarted} className={styles.buttonHome}>Get Started</button>

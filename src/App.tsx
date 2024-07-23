@@ -24,12 +24,15 @@ import DashboardOverview from './Components/DashboardOverview';
 import ContactUs from './Components/ContactUs';
 import ManageBooks from './Components/ManageBooks';
 import ManageLocations from './Components/ManageLocations';
+import AboutUs from './Components/AboutUs';
+import './App.css'; 
+
 const App: React.FC = () => {
-  
   return (
-    <div>
+    <div className="app">
       <Navbar />
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -49,14 +52,13 @@ const App: React.FC = () => {
         <Route path="/booking-history" element={<BookingHistory />} />
         <Route path="/payment" element={<PaymentForm />} />
         <Route path="/payment-form" element={<PaymentForm />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/user/payment-success" element={<PaymentSuccess />} />
         <Route path="/user-dashboard-overview" element={<DashboardOverview />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/admin/manage-books" element={<ManageBooks />} />
         <Route path="/admin/manage-locations" element={<ManageLocations />} />
-
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
       <Footer />
     </div>
