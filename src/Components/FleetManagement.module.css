@@ -1,10 +1,52 @@
-.fleet-management {
-    padding: 20px;
-  }
-  
-  .fleet-management h2 {
-    text-align: center;
-  }
-  
-  /* Add more specific styles for CRUD operations as needed */
-  
+.fleetManagement {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fleetManagement h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.update-form {
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px; /* Space between buttons */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.fleetTable {
+  margin-top: 20px;
+}

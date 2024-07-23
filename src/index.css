@@ -11,6 +11,7 @@ body {
   overflow: hidden; /* Hide overflow to prevent scrolling */
   display: flex; /* Use flexbox for layout */
   flex-direction: column;
+  overflow: hidden;
 }
 
 a {

@@ -1,10 +1,77 @@
-.manage-users {
-    padding: 20px;
-  }
-  
-  .manage-users h2 {
-    text-align: center;
-  }
-  
-  /* Add more specific styles for CRUD operations as needed */
-  
+/* ManageUsers.module.css */
+.manageUsers {
+  padding: 20px;
+}
+
+.updateForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateForm div {
+  margin-bottom: 10px;
+}
+
+.submitButton {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: darkblue;
+}
+
+.cancelButton {
+  background-color: grey;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancelButton:hover {
+  background-color: darkgrey;
+}
+
+/* UserTable.module.css */
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.userTable th, .userTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.updateButton {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.updateButton:hover {
+  background-color: darkblue;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}

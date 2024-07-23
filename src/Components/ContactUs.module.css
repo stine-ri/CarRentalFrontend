@@ -1,0 +1,108 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  background-color: #f9f3ee;
+}
+
+.formContainer, .newsletterContainer, .contactInfo {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formContainer {
+  grid-column: span 2;
+}
+
+.newsletterContainer, .contactInfo {
+  grid-column: span 1;
+}
+
+.goBack {
+  display: block;
+  margin-bottom: 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sendMessageButton,
+.signUpButton {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.sendMessageButton:hover,
+.signUpButton:hover {
+  background-color: #e55340;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletterForm label {
+  margin-bottom: 10px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactInfo h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.contactInfo p {
+  margin: 5px 0;
+}
+
+.contactInfo a {
+  color: #ff6347;
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}

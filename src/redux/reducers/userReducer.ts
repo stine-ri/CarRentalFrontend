@@ -1,20 +1,28 @@
+// userReducer.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchUsers, deleteUser, updateUser } from '../actions/userAction';
+import { fetchUsers, updateUser, deleteUser } from '../actions/userAction';
 
-// Define the state interface
-interface UserState {
-  users: any[]; 
-  loading: boolean; 
-  error: string | null;
-  success:undefined;
+export interface UserData {
+  id: number;
+  full_name: string;
+  email: string;
+  contact_phone: string;
+  address: string;
+  role: string;
+  created_at: string;
+  updated_at: string;
 }
 
-// Initial state
+interface UserState {
+  loading: boolean;
+  users: UserData[];
+  error: string | null;
+}
+
 const initialState: UserState = {
-  users: [],
   loading: false,
+  users: [],
   error: null,
-  success:undefined
 };
 
 const userSlice = createSlice({
@@ -25,42 +33,23 @@ const userSlice = createSlice({
     builder
       .addCase(fetchUsers.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
+      .addCase(fetchUsers.fulfilled, (state, action: PayloadAction<UserData[]>) => {
         state.loading = false;
-        state.users = action.payload.users;
-        state.error = null;
+        state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || 'Failed to fetch users'; 
+        state.error = action.error.message || 'Failed to fetch users';
       })
-      .addCase(updateUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(updateUser.fulfilled, (state, action: PayloadAction<UserData>) => {
+        const index = state.users.findIndex(user => user.id === action.payload.id);
+        if (index !== -1) {
+          state.users[index] = action.payload;
+        }
       })
-      .addCase(updateUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.users = action.payload.users;
-        state.error = null;
-      })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || 'Failed to update users'; // Provide a default error message
-      })
-      .addCase(deleteUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(deleteUser.fulfilled, (state, action: PayloadAction<{ userId: number }>) => {
-        state.loading = false;
-        state.users = state.users.filter((user) => user.id !== action.payload.userId);
-        state.error = null;
-      })
-      .addCase(deleteUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || 'Failed to delete user'; // Provide a default error message
+      .addCase(deleteUser.fulfilled, (state, action: PayloadAction<number>) => {
+        state.users = state.users.filter(user => user.id !== action.payload);
       });
   },
 });

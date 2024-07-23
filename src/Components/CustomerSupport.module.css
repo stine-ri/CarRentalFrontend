@@ -1,10 +1,8 @@
-.customer-support {
-    padding: 20px;
-  }
-  
-  .customer-support h2 {
-    text-align: center;
-  }
-  
-  /* Add styles for managing customer support tickets */
-  
+.customerSupport {
+  padding: 20px;
+}
+
+.customerSupport h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}

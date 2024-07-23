@@ -1,0 +1,52 @@
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .cardContent {
+    padding: 16px;
+  }
+  
+  .heading {
+    color: #1976d2;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .icon {
+    margin-right: 8px;
+  }
+  
+  .tableContainer {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .tableHead {
+    background-color: #1976d2;
+    color: #fff;
+  }
+  
+  .tableCell {
+    color: #1976d2;
+    padding: 8px;
+  }
+  
+  .tableCellStatusSuccessful {
+    color: #4caf50;
+  }
+  
+  .tableCellStatusFailed {
+    color: #f44336;
+  }
+  
+  .tableRow {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tableRow:last-child {
+    border-bottom: none;
+  }
+  

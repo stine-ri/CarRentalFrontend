@@ -1,78 +1,61 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+interface UserData {
+  id: number;
+  full_name: string;
+  email: string;
+  contact_phone: string;
+  address: string;
+  role: string;
+  created_at: string;
+  updated_at: string;
+}
+
+// Fetch Users
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-  const token = localStorage.getItem('token');
-  console.log('Token:', token);
-  if (!token) {
-    throw new Error('Token not found');
-  }
-
-  const response = await fetch('http://localhost:3000/api/users', {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  });
-
+  const response = await fetch('http://localhost:3000/api/users');
   if (!response.ok) {
-    console.error('Fetch Users Error:', response.status, response.statusText); 
-    throw new Error('Network response was not ok');
+    const jsonResponse = await response.json();
+    throw new Error(jsonResponse.message || 'Network response was not ok');
   }
-
-  return response.json();
+  const jsonResponse: UserData[] = await response.json();
+  return jsonResponse;
 });
 
-export const deleteUser = createAsyncThunk('users/deleteUser', async (userId: number) => {
-  const token = localStorage.getItem('token');
-  console.log('Token:', token);
-  if (!token) {
-    throw new Error('Token not found');
-  }
-
-  const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  });
-
-  if (!response.ok) {
-    console.error('Delete User Error:', response.status, response.statusText); 
-    throw new Error('Network response was not ok');
-  }
-
-  return response.json();
-});
-
+// Update User
 export const updateUser = createAsyncThunk(
   'users/updateUser',
-  async ({ userId, userData }: { userId: number; userData: any }) => {
-    const token = localStorage.getItem('token');
-    console.log('Token:', token);
-    if (!token) {
-      throw new Error('Token not found');
-    }
-
+  async ({ userId, userData }: { userId: number; userData: Partial<UserData> }) => {
     const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(userData),
     });
 
     if (!response.ok) {
-      console.error('Update User Error:', response.status, response.statusText); 
-      throw new Error('Network response was not ok');
+      const data = await response.json();
+      throw new Error(data.message || 'Failed to update user');
     }
 
-    const data = await response.json();
-    console.log('Response Data:', data);
-    return data;
+    return await response.json();
   }
 );
 
-export const logoutUser = () => (dispatch: any) => {
-  localStorage.removeItem('token');
-  dispatch({ type: 'LOGOUT' });
-};
+// Delete User
+export const deleteUser = createAsyncThunk(
+  'users/deleteUser',
+  async (userId: number) => {
+    const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data.message || 'Failed to delete user');
+    }
+
+    return userId;
+  }
+);

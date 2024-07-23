@@ -5,27 +5,22 @@
 
 .bookings h2 {
   text-align: center;
-  margin-bottom: 20px; /* Add space below the heading */
+  margin-bottom: 20px; 
 }
 
-.vehicle-list {
-  display: flex;
-  flex-direction: row; /* Ensure items are laid out horizontally */
-  flex-wrap: nowrap; /* Prevent items from wrapping */
-  overflow-x: auto; /* Enable horizontal scrolling if necessary */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .vehicle-item {
-  min-width: 200px; /* Minimum width for each vehicle item */
-  max-width: 300px; /* Maximum width for each vehicle item */
-  flex: 0 0 auto; /* Ensure items do not grow or shrink */
   border: 1px solid #ccc;
   padding: 10px;
-  margin-right: 20px; /* Add space between items */
-  text-align: center;
   background-color: #fff; /* Add background color to each vehicle item */
   border-radius: 8px; /* Rounded corners for better aesthetics */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  text-align: center;
 }
 
 .vehicle-item img {
@@ -56,4 +51,17 @@
 
 .vehicle-details button:hover {
   background-color: #0056b3; /* Darker shade on hover */
+}
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: opacity 1s ease-out;
+  opacity: 1;
+}
+
+.successMessage.hidden {
+  opacity: 0;
 }

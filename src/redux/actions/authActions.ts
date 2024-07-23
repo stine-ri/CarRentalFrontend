@@ -4,7 +4,7 @@ export const registerUser = createAsyncThunk(
   'auth/registerUser',
   async (userData: any, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,6 +19,7 @@ export const registerUser = createAsyncThunk(
 
       const data = await response.json();
       localStorage.setItem('token', data.token);
+      localStorage.setItem('userRole', data.role); // Store user role
       return { user: data.user, token: data.token, role: data.role, message: data.msg };
     } catch (error: any) {
       return rejectWithValue(error.message);
@@ -26,15 +27,11 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-
-
-
-// Login User
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: any, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,9 +40,12 @@ export const loginUser = createAsyncThunk(
       });
 
       const data = await response.json();
+      console.log('API Response:', data); // Check the full response
+
       if (response.ok) {
         localStorage.setItem('token', data.token);
-        return { user: data.user, token: data.token, role: data.role };
+        localStorage.setItem('userRole', data.user.role); // Ensure role is accessed from user object
+        return { user: data.user, token: data.token, role: data.user.role };
       } else {
         return rejectWithValue(data.message);
       }
@@ -55,8 +55,7 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// Logout User
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   localStorage.removeItem('token');
-  localStorage.removeItem('userRole');
+  localStorage.removeItem('userRole'); 
 });

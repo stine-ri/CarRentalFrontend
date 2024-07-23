@@ -1,0 +1,81 @@
+.dashboardOverview {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .linksSection {
+    flex: 1;
+    max-width: 40%;
+  }
+  
+  .welcomeText {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .linkItem {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .linkItem a, .linkItem button {
+    display: block;
+    text-decoration: none;
+    color: #1976d2;
+    padding: 12px 16px; /* Added padding for spacing */
+    font-size: 1.1rem; /* Increased font size */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth background color transition */
+    border: 1px solid #1976d2; /* Add border for the button look */
+    background-color: #fff; /* Background color */
+    text-align: center; /* Center align text */
+  }
+  
+  .linkItem a:hover, .linkItem button:hover {
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+  }
+  
+  .logoutButton {
+    background: none;
+    border: 1px solid #1976d2;
+    color: #1976d2;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 12px 16px; /* Match padding with links */
+    border-radius: 4px; /* Match border radius with links */
+    text-align: center; /* Center align text */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .logoutButton:hover {
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+  }
+  
+  .imageSection {
+    flex: 1;
+    max-width: 50%;
+    margin-left: 20px;
+  }
+  
+  .welcomeImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  

@@ -1,37 +1,102 @@
 .admin-dashboard {
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Ensure the dashboard takes up the full viewport height */
 }
 
-.admin-dashboard h2 {
-  text-align: center;
+.admin-nav-container {
+  width: 250px; /* Fixed width for the navigation panel */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f4f6f8; /* Light background for the nav container */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Box shadow for the nav container */
 }
 
 .admin-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the left corner */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .admin-nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.admin-nav li {
-  margin-bottom: 10px; /* Adjust margin bottom for spacing between items */
-}
-
-.admin-nav a {
-  display: block; /* Make anchor tags block level for full-width effect */
-  padding: 10px;
+.admin-nav-link {
+  display: block;
   text-decoration: none;
-  color: white;
-  background-color: #007bff;
-  border-radius: 5px;
-  width: 200px; /* Adjust width as needed */
-  text-align: center; /* Center text horizontally */
+  color: #1976d2;
+  padding: 12px 16px; /* Added padding for spacing */
+  font-size: 1.1rem; /* Increased font size */
+  margin-bottom: 10px; /* Spacing between links */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth background color transition */
+  border: 1px solid #1976d2; /* Add border for the button look */
+  background-color: #fff; /* Background color */
+  text-align: center; /* Center align text */
 }
 
-.admin-nav a:hover {
-  background-color: #0056b3;
+.admin-nav-link:hover {
+  background-color: #e3f2fd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+}
+
+.logout-button {
+  background: none;
+  border: 1px solid #1976d2;
+  color: #1976d2;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 12px 16px; /* Match padding with links */
+  border-radius: 4px; /* Match border radius with links */
+  text-align: center; /* Center align text */
+  margin-top: 20px; /* Spacing above the logout button */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.logout-button:hover {
+  background-color: #e3f2fd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+}
+
+.admin-dashboard .overview {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+.overview-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.overview-item {
+  flex: 1;
+  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-link {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: bold;
+  display: inline-block; /* Display as inline-block */
+  padding: 10px 15px; /* Add padding for spacing */
+  border: 1px solid #1976d2; /* Add border for the button look */
+  border-radius: 4px; /* Round the corners */
+  margin-top: 10px; /* Add margin on top for spacing */
+}
+
+.button-link:hover {
+  text-decoration: underline;
+  background-color: #e3f2fd; /* Add background color on hover */
 }

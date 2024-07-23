@@ -1,0 +1,39 @@
+.booking-history-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .booking-history-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .booking-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booking-item {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .booking-details {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .booking-id {
+    font-weight: bold;
+    color: #000;
+  }
+  

@@ -1,0 +1,14 @@
+.details {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .details h2 {
+    margin-bottom: 20px;
+  }
+  
+  .details p {
+    margin-bottom: 10px;
+  }
+  

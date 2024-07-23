@@ -1,38 +1,75 @@
+.book-vehicle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/path-to-your-background-image.jpg'); /* Set your background image path here */
+  background-size: cover;
+  background-position: center;
+}
+
 .book-vehicle {
-  max-width: 400px;
-  margin: auto;
+  max-width: 600px;
+  width: 100%;
   padding: 20px;
-  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .book-vehicle h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.book-vehicle form {
+.book-vehicle .form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.book-vehicle label {
-  margin-top: 10px;
+.book-vehicle .form-group {
+  width: 48%;
+  margin-bottom: 10px;
 }
 
-.book-vehicle input,
-.book-vehicle select {
+.book-vehicle .label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.book-vehicle .input,
+.book-vehicle .select {
+  width: 100%;
   padding: 10px;
   margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.book-vehicle button {
+.book-vehicle .button {
+  width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: #007bff;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.book-vehicle button:hover {
+.book-vehicle .button:hover {
   background-color: #0056b3;
+}
+
+.book-vehicle p {
+  text-align: center;
+  margin-top: 10px;
+}
+.success-message {
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
 }
