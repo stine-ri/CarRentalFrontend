@@ -8,12 +8,16 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-       <a href='/bookings'>
-        <h2 className='company'>Rent A Car</h2></a>
+        <h2 >Rent A Car</h2>
       </div>
       <div className={styles.contact}>
+        <h3>lINKS:</h3>
         <a href='/contact-us'>
         <h3>Contact US</h3></a>
+        <a href='/home'>
+        <h3>Home</h3></a>
+        <a href='/bookings'>
+        <h3>Cars</h3></a>
       </div>
       <div className={styles.social}>
         <a href="https://www.facebook.com">
