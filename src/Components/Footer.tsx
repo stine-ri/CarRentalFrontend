@@ -1,34 +1,31 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import facebookIcon from '../assets/images/fb.png';
-import instagramIcon from '../assets/images/gram.png';
-import twitterIcon from '../assets/images/twitt.png';
+import facebookIcon from '../assets/images/facebook.png';
+import instagramIcon from '../assets/images/instagram.png';
+import twitterIcon from '../assets/images/twitter.png';
+import googleIcon from '../assets/images/google.png';
+import youtubeIcon from '../assets/images/tube.png';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.logo}>
-        <h2 >Rent A Car</h2>
+    <div className={styles.footer}>
+      <div className={styles.footerIcons}>
+        <img src={facebookIcon} alt="Facebook" />
+        <img src={instagramIcon} alt="Instagram" />
+        <img src={twitterIcon} alt="Twitter" />
+        <img src={googleIcon} alt="Google" />
+        <img src={youtubeIcon} alt="YouTube" />
       </div>
-      <div className={styles.contact}>
-        <a href='/contact-us'>
-        <h3>Contact US</h3></a>
+      <div className={styles.footerLinks}>
+    
+        <a href="#">News</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
       </div>
-      <div className={styles.social}>
-        <a href="https://www.facebook.com">
-          <img src={facebookIcon} alt="Facebook" />
-        </a>
-        <a href="https://www.instagram.com">
-          <img src={instagramIcon} alt="Instagram" />
-        </a>
-        <a href="https://www.twitter.com">
-          <img src={twitterIcon} alt="Twitter" />
-        </a>
+      <div className={styles.footerCopyright}>
+        Copyright ©2024,  Designed by Christine
       </div>
-      <div>
-        <p>&copy; 2024 Stine Rental Management System</p>
-      </div>
-    </footer>
+    </div>
   );
 };
 

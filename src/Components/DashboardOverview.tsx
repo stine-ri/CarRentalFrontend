@@ -31,7 +31,7 @@ const UserDashboardOverviewPage: React.FC = () => {
               <Link to="/booking-history">Booking History</Link>
             </div>
             <div className={styles.linkItem}>
-              <Link to="/book-vehicle">Book Vehicle</Link>
+              <Link to="/tickets">My tickets</Link>
             </div>
             <div className={styles.linkItem}>
               <Link to="/bookings">Available Vehicles</Link>

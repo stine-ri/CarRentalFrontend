@@ -15,7 +15,7 @@
   }
   
   .updateButton {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -28,7 +28,7 @@
   }
   
   .deleteButton {
-    background-color: #f44336;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 5px 10px;

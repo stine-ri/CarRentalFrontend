@@ -1,8 +1,14 @@
+:root {
+  --navbar-height: 60px; /* Adjust based on your actual navbar height */
+  --footer-height: 60px; /* Adjust based on your actual footer height */
+}
+
 .book-vehicle-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  padding: var(--navbar-height) 0 var(--footer-height) 0;
   background-image: url('/path-to-your-background-image.jpg'); /* Set your background image path here */
   background-size: cover;
   background-position: center;
@@ -40,7 +46,7 @@
 
 .book-vehicle .input,
 .book-vehicle .select {
-  width: 100%;
+  width: 70%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -48,7 +54,7 @@
 }
 
 .book-vehicle .button {
-  width: 100%;
+  width: 60%;
   padding: 10px;
   margin-top: 20px;
   background-color: #007bff;
@@ -56,6 +62,8 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  position: relative;
+  left: 10%;
 }
 
 .book-vehicle .button:hover {
@@ -66,6 +74,7 @@
   text-align: center;
   margin-top: 10px;
 }
+
 .success-message {
   color: green;
   font-size: 16px;

@@ -25,6 +25,8 @@ import ContactUs from './Components/ContactUs';
 import ManageBooks from './Components/ManageBooks';
 import ManageLocations from './Components/ManageLocations';
 import AboutUs from './Components/AboutUs';
+import TicketsPage from './Components/Ticketi';
+import LandingPage from './Components/LandingPage';
 import './App.css'; 
 
 const App: React.FC = () => {
@@ -32,7 +34,7 @@ const App: React.FC = () => {
     <div className="app">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/bookings" element={<Bookings />} />
@@ -58,6 +60,7 @@ const App: React.FC = () => {
         <Route path="/admin/manage-books" element={<ManageBooks />} />
         <Route path="/admin/manage-locations" element={<ManageLocations />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/tickets" element={<TicketsPage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,0 +1,54 @@
+.testimonialSection {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Adjusted for better readability over the background */
+    border-radius: 8px;
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto;
+  }
+  
+  .testimonialSection h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .testimonials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Added to handle smaller screen sizes */
+  }
+  
+  .testimonial {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 90%; /* Adjusted to be responsive */
+  }
+  
+  .clientImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  .clientName {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .credits {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  

@@ -86,34 +86,36 @@ const PaymentForm: React.FC = () => {
   };
 
   return (
-    <div className={styles.card}>
-      <h2 className={styles.header}>
-        <span className={styles.icon}>💳</span> Payment Form
-      </h2>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.inputGroup}>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount"
-            className={styles.input}
-            required
-          />
-        </div>
-        <div className={styles.cardElement}>
-          <CardElement />
-        </div>
-        <button
-          type="submit"
-          disabled={!stripe || isLoading}
-          className={styles.button}
-        >
-          {isLoading ? 'Processing...' : 'Pay'}
-        </button>
-        {errorMessage && <div className={styles.error}>{errorMessage}</div>}
-        {isSuccess && <div className={styles.success}>Payment successful!</div>}
-      </form>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.header}>
+          <span className={styles.icon}>💳</span> Payment Form
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.inputGroup}>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Amount"
+              className={styles.input}
+              required
+            />
+          </div>
+          <div className={styles.cardElement}>
+            <CardElement />
+          </div>
+          <button
+            type="submit"
+            disabled={!stripe || isLoading}
+            className={styles.button}
+          >
+            {isLoading ? 'Processing...' : 'Pay'}
+          </button>
+          {errorMessage && <div className={styles.error}>{errorMessage}</div>}
+          {isSuccess && <div className={styles.success}>Payment successful!</div>}
+        </form>
+      </div>
     </div>
   );
 };

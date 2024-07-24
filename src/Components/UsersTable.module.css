@@ -20,6 +20,7 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .updateButton:hover {
@@ -27,13 +28,14 @@
 }
 
 .deleteButton {
-  background-color: #dc3545;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .deleteButton:hover {
-  background-color: #c82333;
+  background-color: #0056b3;
 }

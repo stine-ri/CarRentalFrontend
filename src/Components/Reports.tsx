@@ -23,17 +23,10 @@ interface Financials {
     Apr: number;
     May: number;
     Jun: number;
-    Jul: number;
-    Aug: number;
-    Sep: number;
-    Oct: number;
-    Nov: number;
-    Dec: number;
   };
 }
 
 const Report: React.FC = () => {
-  // Placeholder data
   const [financials, setFinancials] = useState<Financials>({
     totalRevenue: 25000,
     revenueByVehicleType: { SUV: 10000, Sedan: 8000, Truck: 7000 },
@@ -46,12 +39,6 @@ const Report: React.FC = () => {
       Apr: 2500,
       May: 2700,
       Jun: 3000,
-      Jul: 3200,
-      Aug: 3500,
-      Sep: 3300,
-      Oct: 3100,
-      Nov: 2900,
-      Dec: 3600,
     },
   });
 

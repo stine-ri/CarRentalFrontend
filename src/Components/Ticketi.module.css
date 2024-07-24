@@ -1,0 +1,52 @@
+/* Ticket.module.css */
+.ticketsPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ticketsContainer {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  .ticketList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ticketItem {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .formContainer {
+    width: 80%;
+    margin-top: 20px;
+  }
+  
+  .ticketForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup {
+    margin-bottom: 10px;
+  }
+  
+  .submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
