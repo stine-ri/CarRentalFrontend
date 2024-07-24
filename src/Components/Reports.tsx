@@ -1,93 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Reports.module.css';
-import carImage from '../assets/images/cadillac.webp'; // Import the car image
 
-// Define types for the report data
-interface Financials {
-  totalRevenue: number;
-  revenueByVehicleType: {
-    SUV: number;
-    Sedan: number;
-    Truck: number;
-  };
-  paymentMethods: {
-    CreditCard: number;
-    PayPal: number;
-    Mpesa: number;
-  };
-  topSellingProduct: string;
-  monthlyRevenue: {
-    Jan: number;
-    Feb: number;
-    Mar: number;
-    Apr: number;
-    May: number;
-    Jun: number;
-  };
+interface Rental {
+  rental_id: string;
+  vehicle_id: string;
+  customer_name: string;
+  rental_date: string;
+  return_date: string;
+  status: string; // e.g., "Ongoing", "Completed"
 }
 
-const Report: React.FC = () => {
-  const [financials, setFinancials] = useState<Financials>({
-    totalRevenue: 25000,
-    revenueByVehicleType: { SUV: 10000, Sedan: 8000, Truck: 7000 },
-    paymentMethods: { CreditCard: 15000, PayPal: 7000, Mpesa: 3000 },
-    topSellingProduct: 'Sedan',
-    monthlyRevenue: {
-      Jan: 2000,
-      Feb: 1800,
-      Mar: 2200,
-      Apr: 2500,
-      May: 2700,
-      Jun: 3000,
-    },
+const ReportComponent: React.FC = () => {
+  const [rentals, setRentals] = useState<Rental[]>([]);
+  const [summary, setSummary] = useState({
+    totalRentals: 0,
+    ongoingRentals: 0,
+    completedRentals: 0,
   });
 
-  const handleAddReport = () => {
-    // Logic to add a new report
-    alert('Add new report functionality is not implemented yet.');
-  };
+  useEffect(() => {
+    // Mock data for rentals
+    const mockRentals = [
+      {
+        rental_id: '1',
+        vehicle_id: 'AB-1234',
+        customer_name: 'John Doe',
+        rental_date: '2024-07-01',
+        return_date: '2024-07-10',
+        status: 'Completed',
+      },
+      {
+        rental_id: '2',
+        vehicle_id: 'BC-5678',
+        customer_name: 'Jane Smith',
+        rental_date: '2024-07-05',
+        return_date: '2024-07-15',
+        status: 'Ongoing',
+      },
+      {
+        rental_id: '3',
+        vehicle_id: 'CD-9012',
+        customer_name: 'Alice Johnson',
+        rental_date: '2024-07-10',
+        return_date: '2024-07-20',
+        status: 'Ongoing',
+      },
+    ];
+
+    setRentals(mockRentals);
+    setSummary({
+      totalRentals: mockRentals.length,
+      ongoingRentals: mockRentals.filter((rental) => rental.status === 'Ongoing').length,
+      completedRentals: mockRentals.filter((rental) => rental.status === 'Completed').length,
+    });
+  }, []);
 
   return (
-    <div className={styles.reportContainer}>
-      <h2>Reports</h2>
-
-      <div className={styles.reportCard}>
-        <h3>Total Revenue</h3>
-        <p>${financials.totalRevenue.toLocaleString()}</p>
-      </div>
-
-      <div className={styles.reportCard}>
-        <h3>Revenue by Vehicle Type</h3>
-        <p>SUV: ${financials.revenueByVehicleType.SUV.toLocaleString()}</p>
-        <p>Sedan: ${financials.revenueByVehicleType.Sedan.toLocaleString()}</p>
-        <p>Truck: ${financials.revenueByVehicleType.Truck.toLocaleString()}</p>
-      </div>
-
-      <div className={styles.reportCard}>
-        <h3>Payment Methods</h3>
-        <p>Credit Card: ${financials.paymentMethods.CreditCard.toLocaleString()}</p>
-        <p>PayPal: ${financials.paymentMethods.PayPal.toLocaleString()}</p>
-        <p>Mpesa: ${financials.paymentMethods.Mpesa.toLocaleString()}</p>
-      </div>
-
-      <div className={styles.reportCard}>
-        <h3>Top Selling Product</h3>
-        <div className={styles.topSellingContainer}>
-          <img src={carImage} alt="Car" className={styles.carImage} />
-          <p>{financials.topSellingProduct}</p>
+    <div className={styles.container}>
+      <h2>Stine Rental Report</h2>
+      <div className={styles.summary}>
+        <div className={styles.summaryItem}>
+          <h3>Total Rentals</h3>
+          <p>{summary.totalRentals}</p>
+        </div>
+        <div className={styles.summaryItem}>
+          <h3>Ongoing Rentals</h3>
+          <p>{summary.ongoingRentals}</p>
+        </div>
+        <div className={styles.summaryItem}>
+          <h3>Completed Rentals</h3>
+          <p>{summary.completedRentals}</p>
         </div>
       </div>
-
-      <div className={styles.reportCard}>
-        <h3>Monthly Revenue</h3>
-        {Object.keys(financials.monthlyRevenue).map((month) => (
-          <p key={month}>{month}: ${financials.monthlyRevenue[month as keyof typeof financials.monthlyRevenue].toLocaleString()}</p>
-        ))}
-      </div>
-
-      <button onClick={handleAddReport} className={styles.addButton}>Add New Report</button>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>Rental ID</th>
+            <th>Vehicle ID</th>
+            <th>Customer Name</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rentals.map((rental) => (
+            <tr key={rental.rental_id}>
+              <td>{rental.rental_id}</td>
+              <td>{rental.vehicle_id}</td>
+              <td>{rental.customer_name}</td>
+              <td>{rental.rental_date}</td>
+              <td>{rental.return_date}</td>
+              <td className={rental.status === 'Ongoing' ? styles.ongoing : styles.completed}>
+                {rental.status}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-export default Report;
+export default ReportComponent;

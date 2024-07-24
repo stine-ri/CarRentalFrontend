@@ -1,49 +1,89 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { fetchTickets } from '../redux/actions/ticketAction';
+import React, { useState } from 'react';
 import styles from './Ticket.module.css';
 
 interface Ticket {
-  user_id: number;
+  ticketNumber: number;
   subject: string;
   description: string;
-  status: string;
 }
 
-const Tickets: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const tickets = useAppSelector((state) => state.tickets.tickets);
-  const loading = useAppSelector((state) => state.tickets.loading);
-  const error = useAppSelector((state) => state.tickets.error);
+const TicketsComponent: React.FC = () => {
+  const [tickets, setTickets] = useState<Ticket[]>([
+    { ticketNumber: 1, subject: 'Booking', description: 'Price' },
+    { ticketNumber: 2, subject: 'Booking', description: 'Return date' },
+  ]);
+  const [newTicket, setNewTicket] = useState<Omit<Ticket, 'ticketNumber'>>({
+    subject: '',
+    description: '',
+  });
+  const [message, setMessage] = useState<string>('');
 
-  useEffect(() => {
-    dispatch(fetchTickets());
-  }, [dispatch]);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setNewTicket({
+      ...newTicket,
+      [name]: value,
+    });
+  };
+
+  const addTicket = () => {
+    const newTicketNumber = tickets.length > 0 ? tickets[tickets.length - 1].ticketNumber + 1 : 1;
+    const ticketWithNumber: Ticket = {
+      ...newTicket,
+      ticketNumber: newTicketNumber,
+    };
+
+    setTickets([...tickets, ticketWithNumber]);
+    setMessage(`Ticket #${newTicketNumber} added successfully!`);
+    setNewTicket({
+      subject: '',
+      description: '',
+    });
+  };
 
   return (
-    <div className={styles.ticketsContainer}>
-      <h2>Past Tickets</h2>
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        tickets.length > 0 ? (
-          <ul className={styles.ticketList}>
-            {tickets.map((ticket: Ticket, index: number) => (
-              <li key={index} className={styles.ticketItem}>
-                <h3>{ticket.subject}</h3>
-                <p>{ticket.description}</p>
-                <p>Status: {ticket.status}</p>
-              </li>
+    <div className={styles.container}>
+      <h2>Ticket Management</h2>
+      <div className={styles.form}>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={newTicket.subject}
+          onChange={handleInputChange}
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={newTicket.description}
+          onChange={handleInputChange}
+        ></textarea>
+        <button onClick={addTicket}>Add Ticket</button>
+      </div>
+      {message && <p className={styles.message}>{message}</p>}
+      <div className={styles.table}>
+        <h3>Tickets</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Ticket Number</th>
+              <th>Subject</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tickets.map((ticket) => (
+              <tr key={ticket.ticketNumber}>
+                <td>{ticket.ticketNumber}</td>
+                <td>{ticket.subject}</td>
+                <td>{ticket.description}</td>
+              </tr>
             ))}
-          </ul>
-        ) : (
-          <p>No tickets found.</p>
-        )
-      )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-export default Tickets;
+export default TicketsComponent;

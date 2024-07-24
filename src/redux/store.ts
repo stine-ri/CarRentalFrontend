@@ -9,7 +9,6 @@ import profileReducer from './reducers/profileReducer';
 import paymentReducer from './reducers/paymentReducer';
 import bookReducer from './reducers/bookReducer';
 import locationReducer from './reducers/locationReducer';
-import ticketReducer from './reducers/ticketReducer';
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -22,7 +21,7 @@ const store = configureStore({
     payment: paymentReducer, 
     books :bookReducer,
     locations: locationReducer,
-    tickets: ticketReducer,
+   
   },
 });
 

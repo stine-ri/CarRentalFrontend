@@ -21,7 +21,7 @@ const AdminDashboard: React.FC = () => {
             <li><Link to="/admin/reports" className={styles['admin-nav-link']}>Reports</Link></li>
             <li><Link to="/admin/customer-support" className={styles['admin-nav-link']}>Customer Support</Link></li>
             <li><Link to="/admin/fleet-management" className={styles['admin-nav-link']}>Fleet Management</Link></li>
-            <li><Link to="/admin/settings" className={styles['admin-nav-link']}>Settings</Link></li>
+            <li><Link to="/vehicles" className={styles['admin-nav-link']}>Vehicles</Link></li>
             <li><Link to="/admin/manage-books" className={styles['admin-nav-link']}>Bookings</Link></li>
             <li><Link to="/admin/manage-locations" className={styles['admin-nav-link']}>Locations</Link></li>
           </div>
@@ -68,8 +68,8 @@ const AdminDashboard: React.FC = () => {
           </div>
           <div className={styles['overview-item']}>
             <h3>Settings</h3>
-            <p>Configure system settings and preferences.</p>
-            <Link to="/admin/settings" className={styles['button-link']}>Go to Settings</Link>
+            <p>Add a car and confirm its availability.</p>
+            <Link to="/vehicles" className={styles['button-link']}>Go to Vehicles</Link>
           </div>
         </div>
       </div>

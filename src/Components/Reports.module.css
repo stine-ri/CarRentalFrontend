@@ -1,65 +1,79 @@
-.reportContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.container {
+  background-color: white;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 60px auto; /* Adjust the top and bottom margin to create space from the navbar and footer */
 }
 
-.reportCard {
-  flex: 1 1 calc(25% - 20px);
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin-bottom: 20px;
-  transition: transform 0.2s;
-}
-
-.reportCard:hover {
-  transform: translateY(-5px);
-}
-
-.reportCard h3 {
-  margin-top: 0;
+h2 {
+  text-align: center;
   color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.summaryItem {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.summaryItem h3 {
+  color: #007bff;
+  margin-bottom: 10px;
   font-size: 18px;
+}
+
+.summaryItem p {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e2e2e2;
+}
+
+.ongoing {
+  color: green;
   font-weight: bold;
 }
 
-.reportCard p {
-  margin: 5px 0;
-  color: #555;
-}
-
-.addButton {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: absolute;
-  bottom: -0px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.addButton:hover {
-  background-color: #0056b3;
-}
-
-.topSellingContainer {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.carImage {
-  max-width: 100px;
-  height: auto;
-  border-radius: 8px;
+.completed {
+  color: gray;
+  font-weight: bold;
 }

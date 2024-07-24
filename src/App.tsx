@@ -13,7 +13,7 @@ import ManageUsers from './Components/ManageUsers';
 import Reports from './Components/Reports';
 import CustomerSupport from './Components/CustomerSupport';
 import FleetManagement from './Components/FleetManagement';
-import Settings from './Components/Settings';
+import VehicleComponent from './Components/VehicleComponent';
 import UserDashboard from './Components/UserDashboard';
 import CarDetails from './Components/CarDetails';
 import UpdateProfile from './Components/UpdateProfile';
@@ -25,7 +25,7 @@ import ContactUs from './Components/ContactUs';
 import ManageBooks from './Components/ManageBooks';
 import ManageLocations from './Components/ManageLocations';
 import AboutUs from './Components/AboutUs';
-import TicketsPage from './Components/Ticketi';
+import TicketsPage from './Components/Tickets';
 import LandingPage from './Components/LandingPage';
 import './App.css'; 
 
@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <Route path="/admin/reports" element={<Reports />} />
         <Route path="/admin/customer-support" element={<CustomerSupport />} />
         <Route path="/admin/fleet-management" element={<FleetManagement />} />
-        <Route path="/admin/settings" element={<Settings />} />
+        <Route path="/vehicles" element={<VehicleComponent />} />
         <Route path="/user" element={<UserDashboard />} />
         <Route path="/details/:id" element={<CarDetails />} />
         <Route path="/update-profile" element={<UpdateProfile />} />
