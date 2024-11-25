@@ -34,3 +34,33 @@
 .buttonHome:hover {
   background-color: #45a049;
 }
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .home h1 {
+    font-size: 1.8em;  /* Adjust header size */
+  }
+
+  .home p {
+    font-size: 1em;    /* Adjust paragraph size */
+  }
+
+  .buttonHome {
+    width: 60%;         /* Increase button width on smaller screens */
+    font-size: 18px;    /* Adjust font size for the button */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home h1 {
+    font-size: 1.6em;  /* Further adjust header size for small screens */
+  }
+
+  .home p {
+    font-size: 0.9em;  /* Further adjust paragraph size */
+  }
+
+  .buttonHome {
+    width: 70%;         /* Further increase button width for mobile */
+    font-size: 16px;    /* Adjust button font size for mobile */
+  }
+}
