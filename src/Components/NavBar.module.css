@@ -67,7 +67,7 @@
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
   .navbar {
-    background-color: transparent; /* Make background clear on small screens */
+    background-color:  #333; /* Make background clear on small screens */
   }
 
   .navbar-links {
