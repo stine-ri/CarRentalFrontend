@@ -1,3 +1,4 @@
+/* Default layout (Desktop) */
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,7 +7,7 @@
   background-color: #f9f3ee;
 }
 
-.formContainer, .newsletterContainer, .contactInfo {
+.formContainer, .contactInfo {
   background: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -17,7 +18,7 @@
   grid-column: span 2;
 }
 
-.newsletterContainer, .contactInfo {
+.contactInfo {
   grid-column: span 1;
 }
 
@@ -107,7 +108,7 @@ h2 {
   text-decoration: underline;
 }
 
-/* Media query for small screens (mobile & tablet) */
+/* Media query for mobile & tablet */
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr; /* Stack the columns vertically on small screens */
@@ -118,9 +119,8 @@ h2 {
     grid-column: span 1; /* Ensure the form container spans the full width */
   }
 
-  .newsletterContainer,
   .contactInfo {
-    grid-column: span 1; /* Ensure both containers span the full width */
+    grid-column: span 1; /* Ensure contact info container spans the full width */
   }
 
   .goBack {
