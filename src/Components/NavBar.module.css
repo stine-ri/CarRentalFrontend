@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: relative;
 }
 
 .navbar-logo h1 {
@@ -51,4 +52,45 @@
 
 .navbar .contact-button:hover {
   background-color: #0077aa; /* Darker shade on hover */
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  .navbar {
+    background-color: transparent; /* Make background clear on small screens */
+  }
+
+  .navbar-links {
+    display: none; /* Hide menu by default */
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Adjust position of menu */
+    left: 0;
+    background-color: #333; /* Dark background for the dropdown */
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .navbar-links.open {
+    display: flex; /* Show menu when it is open */
+  }
+
+  .navbar-links li {
+    margin: 10px 0; /* Add space between links */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show hamburger button on small screens */
+  }
 }
