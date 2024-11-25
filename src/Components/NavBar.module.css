@@ -54,9 +54,9 @@
   background-color: #0077aa; /* Darker shade on hover */
 }
 
-/* Hamburger menu styles */
+/* Hamburger menu styles for small screens */
 .hamburger-menu {
-  display: none;
+  display: none; /* Hide by default */
   font-size: 30px;
   background: none;
   border: none;
@@ -67,7 +67,7 @@
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
   .navbar {
-    background-color:  #333; /* Make background clear on small screens */
+    background-color: #333; /* Keep dark background on small screens */
   }
 
   .navbar-links {
@@ -80,6 +80,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
+    z-index: 999; /* Ensure it appears on top */
   }
 
   .navbar-links.open {
@@ -92,5 +93,13 @@
 
   .hamburger-menu {
     display: block; /* Show hamburger button on small screens */
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Position it at the top-right corner */
+    z-index: 1000; /* Ensure it stays above other elements */
+  }
+
+  .hamburger-menu:hover {
+    color: #ccc; /* Lighten the color on hover */
   }
 }
