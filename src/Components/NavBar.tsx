@@ -9,23 +9,19 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(prevState => !prevState);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <nav className={styles.navbar}>
       <div className={styles['navbar-logo']}>
         <h1>Stine Rentals</h1>
       </div>
       <button className={styles['hamburger-menu']} onClick={toggleMenu}>
-        &#9776; {/* Hamburger icon */}
+        {isMenuOpen ? '✖' : '☰'} {/* "X" for close, "☰" for menu */}
       </button>
       <ul className={`${styles['navbar-links']} ${isMenuOpen ? styles['open'] : ''}`}>
-        <li><Link to="/register" onClick={closeMenu}>Register</Link></li>
-        <li><Link to="/about-us" onClick={closeMenu}>About us</Link></li>
-        <li><Link to="/contact-us" onClick={closeMenu}>Contact us</Link></li>
-        <li><Link to="/login" className={styles['contact-button']} onClick={closeMenu}>Login</Link></li>
+        <li><Link to="/register" onClick={() => setIsMenuOpen(false)}>Register</Link></li>
+        <li><Link to="/about-us" onClick={() => setIsMenuOpen(false)}>About us</Link></li>
+        <li><Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>Contact us</Link></li>
+        <li><Link to="/login" className={styles['contact-button']} onClick={() => setIsMenuOpen(false)}>Login</Link></li>
       </ul>
     </nav>
   );
